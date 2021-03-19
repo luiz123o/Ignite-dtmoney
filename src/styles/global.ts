@@ -15,6 +15,8 @@ ${({ theme }) => css`
   }
 
   html {
+    font-size: 93.75%;
+
     @media (max-width: 1080px) {
       font-size: 93.75%;
     }
@@ -67,6 +69,16 @@ ${({ theme }) => css`
       outline: thin dotted;
       outline: 0px auto -webkit-focus-ring-color;
       outline-offset: 0px;
+    }
+  }
+  .react-modal-close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    border: 0;
+    background: transparent;
+    &:hover {
+      transform: skewX(1deg) scale(1.1);
     }
   }
 `}

@@ -6,6 +6,7 @@ import { GlobalStyles } from './styles/global'
 import * as themes from './styles/themes'
 import { useState } from 'react'
 import { NewTransactionModal } from './components/NewTransactionModal'
+import { TransactionsProvider } from './contexts/TransactionsContexts'
 
 Modal.setAppElement('#root')
 
@@ -23,13 +24,15 @@ function App() {
   return (
     <>
       <ThemeProvider theme={themes.light}>
-        <Headers onOpenNewTransactionModal={handleOpenNewTransacionModal} />
-        <Dashboard />
-        <NewTransactionModal
-          isOpen={isNewTransactionModalOpen}
-          onRequestClose={handleCloseNewTransacionModal}
-        />
-        <GlobalStyles />
+        <TransactionsProvider>
+          <Headers onOpenNewTransactionModal={handleOpenNewTransacionModal} />
+          <Dashboard />
+          <NewTransactionModal
+            isOpen={isNewTransactionModalOpen}
+            onRequestClose={handleCloseNewTransacionModal}
+          />
+          <GlobalStyles />
+        </TransactionsProvider>
       </ThemeProvider>
     </>
   )
